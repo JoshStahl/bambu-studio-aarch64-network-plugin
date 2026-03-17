@@ -1,0 +1,11 @@
+endpoint = "[::1]:47403"
+
+printers = [
+    # Fill in your printer details below. Remove the leading '#' from the line.
+    # host     = local IP address of your printer (find it in your router or printer network settings)
+    # dev_id   = serial number shown in Bambu Studio or on the printer label
+    # password = "Access Code" shown on the printer: Settings > WLAN (8-character code)
+    # model    = one of: x1c, x1e, x1, p1p, p1s, a1, a1mini
+
+    # { "name" = "My Printer", model = "x1c", "host" = "192.168.1.100", "dev_id" = "01XXXXXXX", "password" = "XXXXXXXX" }
+]

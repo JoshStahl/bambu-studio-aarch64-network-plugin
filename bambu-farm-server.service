@@ -1,0 +1,13 @@
+[Unit]
+Description=Bambu Farm Server (network plugin backend for Bambu Studio aarch64)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/bambu-farm
+ExecStart=%h/bambu-farm/bambu-farm-server
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

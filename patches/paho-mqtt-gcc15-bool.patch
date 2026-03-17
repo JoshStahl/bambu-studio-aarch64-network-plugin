@@ -1,0 +1,11 @@
+--- a/paho.mqtt.c/src/MQTTPacket.h
++++ b/paho.mqtt.c/src/MQTTPacket.h
+@@ -28,7 +28,11 @@
+ #include "LinkedList.h"
+ #include "Clients.h"
+
+-typedef unsigned int bool;
++#if !defined(__cplusplus) && (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 202311L)
++typedef unsigned int bool;
++#endif
+ typedef void* (*pf)(int, unsigned char, char*, size_t);
