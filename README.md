@@ -18,7 +18,32 @@ This guide documents a working workaround using [bambu-farm](https://github.com/
 - Runs a small gRPC backend server (the `bambu-farm-server`) as a systemd user service
 - Enables LAN-mode printing, printer monitoring, and job submission
 
-**What doesn't work yet** (bambu-farm limitation, not this guide): camera feed.
+---
+
+## Known Limitations
+
+Read this before you start. This workaround gets LAN-mode printing working, but it is **not** a full replacement for the official plugin.
+
+**No camera feed**
+The camera stream is not implemented in bambu-farm. You will not be able to view your print via Bambu Studio's webcam panel. This is a fundamental limitation of the underlying bambu-farm project, not something this guide can fix.
+
+**No Bambu Cloud / remote printing**
+This workaround only supports LAN mode. You must be on the same local network as your printer. Remote printing through Bambu's cloud service does not work.
+
+**No Bambu account features**
+Logging in to your Bambu account may be partially or fully non-functional. Model downloads from MakerWorld, filament sync, and other account-tied features are untested and likely broken.
+
+**Early-stage software**
+bambu-farm is a young, lightly maintained project with minimal error handling. Expect rough edges. Things may break unexpectedly.
+
+**You must re-run the installer after every Bambu Studio update**
+Bambu Studio tries to replace the plugin with its own x86 binary on every update. The immutable file flag blocks the overwrite, but if the app version changes, the version string check will fail and you'll get the "please install" dialog again. Re-running `install.sh` fixes it automatically.
+
+**Debug build — larger file size, no optimizations**
+The plugin is built in debug mode (the default for `cargo build`). It works fine but is larger (~90MB vs ~5MB for the official plugin) and slightly slower than a release build.
+
+**Only tested on one printer model**
+Tested with an X1E on Asahi Linux. Other printer models should work based on the bambu-farm implementation but have not been verified.
 
 ---
 
@@ -252,7 +277,7 @@ Supported model values: `x1c`, `x1e`, `x1`, `p1p`, `p1s`, `a1`, `a1mini` (all lo
 
 **Camera feed doesn't work**
 
-Not yet implemented in bambu-farm. This is a bambu-farm limitation, not this guide.
+Not implemented in bambu-farm. See the Known Limitations section above.
 
 ---
 
