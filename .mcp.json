@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "homeassistant": {
+      "type": "sse",
+      "url": "https://ha.ironcor.net/mcp_server/sse",
+      "headers": {
+        "Authorization": "Bearer ${HA_TOKEN}"
+      }
+    }
+  }
+}
